@@ -25,32 +25,23 @@ simple AI tools and game loops.
 Project may take a couple of months so probably going to do side projects to not fall behind in any way
 
 */
-#include "SDL2/SDL.h"
+
+#include "game.hpp"
 #define SDL_main main
 
+Game *game = nullptr;
+
+
 int main(int argc, char const *argv[]){
-    SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window *window = SDL_CreateWindow("test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_Event event;
-    bool is_running = true;
+    game = new Game();
+    game -> init("Prueba", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
 
-
-    while(is_running){
-
-        if(SDL_PollEvent(&event)){
-            switch(event.type){
-                case SDL_KEYDOWN:
-                    is_running = false;
-                    break;
-            }
-        }
-
-        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-        SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
-
+    while(game->running()){
+        game->handle_event();
+        game->update();
+        game->render();
     }
-    
-    return EXIT_SUCCESS;
+
+    game->clean();
+    return 0;
 }
