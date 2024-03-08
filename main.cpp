@@ -27,14 +27,30 @@ Project may take a couple of months so probably going to do side projects to not
 */
 #include "SDL2/SDL.h"
 #define SDL_main main
+
 int main(int argc, char const *argv[]){
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window *window = SDL_CreateWindow("test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, SDL_WINDOW_SHOWN);
-    
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_RenderClear(renderer);
-    SDL_RenderPresent(renderer);
-    SDL_Delay(3000);    
+    SDL_Event event;
+    bool is_running = true;
+
+
+    while(is_running){
+
+        if(SDL_PollEvent(&event)){
+            switch(event.type){
+                case SDL_KEYDOWN:
+                    is_running = false;
+                    break;
+            }
+        }
+
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
+
+    }
+    
     return EXIT_SUCCESS;
 }
