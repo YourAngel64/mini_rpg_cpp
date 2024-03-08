@@ -34,8 +34,8 @@ Game *game = nullptr;
 
 int main(int argc, char const *argv[]){
     game = new Game();
-    game -> init("Prueba", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
-
+    game -> init("Mini RPG Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    
     while(game->running()){
         game->handle_event();
         game->update();
@@ -43,5 +43,6 @@ int main(int argc, char const *argv[]){
     }
 
     game->clean();
+    
     return 0;
 }

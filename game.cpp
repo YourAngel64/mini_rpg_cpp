@@ -24,6 +24,13 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         }
 
+        text_sur = IMG_Load("./textures/mario.png");
+        if(text_sur){
+            std::cout << "Player textured created" << std::endl;
+            playertex = SDL_CreateTextureFromSurface(renderer, text_sur);
+            SDL_FreeSurface(text_sur);
+        }
+
         isRunning = true;
     }
     else{
@@ -51,6 +58,7 @@ void Game::update(){
 
 void Game::render(){
     SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, playertex, NULL, NULL);
     SDL_RenderPresent(renderer);
 }
 

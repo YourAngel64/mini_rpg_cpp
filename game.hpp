@@ -2,6 +2,8 @@
 #define GAME_H
 
 #include "SDL2/SDL.h"
+#include "SDL2/SDL_image.h"
+#include <string>
 #include <iostream>
 
 class Game{
@@ -26,7 +28,8 @@ private:
     bool isRunning;
     SDL_Window *window;
     SDL_Renderer *renderer;
-
+    SDL_Texture *playertex;
+    SDL_Surface *text_sur;
 };
 
 
