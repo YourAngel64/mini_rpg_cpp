@@ -30,16 +30,29 @@ Project may take a couple of months so probably going to do side projects to not
 #define SDL_main main
 
 Game *game = nullptr;
+//Variables for limiting FPS (practice so then this is going to a hpp file)
+const int FPS = 60;
+const int delay_time = 1000/FPS;
+int frame_time;
+Uint32 frame_start;
 
 
 int main(int argc, char const *argv[]){
     game = new Game();
-    game -> init("Mini RPG Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    game -> init("Mini RPG Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 1200, false);
     
     while(game->running()){
+        frame_start = SDL_GetTicks();
+
         game->handle_event();
         game->update();
         game->render();
+
+        frame_time = SDL_GetTicks() - frame_start;
+
+        if(delay_time > frame_time){
+            SDL_Delay(delay_time - frame_time);
+        }
     }
 
     game->clean();

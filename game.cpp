@@ -3,6 +3,9 @@
 Game::Game(){}
 Game::~Game(){}
 
+SDL_Rect src_rect, destination_rect;
+
+
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool full_screen){
     int flags = 0;
     if(full_screen){
@@ -53,12 +56,15 @@ void Game::handle_event(){
 }
 
 void Game::update(){
-
+    value++;
+    destination_rect.w = 200;
+    destination_rect.h = 200;
+    destination_rect.x = value;
 }
 
 void Game::render(){
     SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, playertex, NULL, NULL);
+    SDL_RenderCopy(renderer, playertex, NULL, &destination_rect);
     SDL_RenderPresent(renderer);
 }
 
