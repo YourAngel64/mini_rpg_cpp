@@ -22,12 +22,12 @@ public:
         return isRunning;
     }
 
+    static SDL_Renderer *renderer;
 
 private:
     bool isRunning;
     int value = 0;
     SDL_Window *window;
-    SDL_Renderer *renderer;
 };
 
 

@@ -6,6 +6,7 @@ Game::~Game(){}
 
 gameObj *player;
 
+SDL_Renderer *Game::renderer = nullptr;
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool full_screen){
     int flags = 0;
@@ -14,22 +15,15 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     }
 
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0){
-        std::cout << "SDL Started" << std::endl;
+        //Window and renderer
         window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
-
-         if(window){
-            std::cout << "Window created" << std::endl;
-        }
-
         renderer = SDL_CreateRenderer(window, -1, 0);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        
+        //Init main gameObj
+        player = new gameObj("./textures/mario.png");
 
-        if(renderer){
-            std::cout << "Renderer created" << std::endl;
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        }
-
-        player = new gameObj("./textures/mario.png", renderer);
-
+        //Game is running
         isRunning = true;
     }
     else{
@@ -53,6 +47,7 @@ void Game::handle_event(){
 
 void Game::update(){
     value++;
+    player -> update(value, value, 200, 200);
     // destination_rect.w = 200;
     // destination_rect.h = 200;
     // destination_rect.x = value;
