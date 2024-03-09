@@ -23,14 +23,11 @@ public:
     }
 
 
-
 private:
     bool isRunning;
     int value = 0;
     SDL_Window *window;
     SDL_Renderer *renderer;
-    SDL_Texture *playertex;
-    SDL_Surface *text_sur;
 };
 
 
