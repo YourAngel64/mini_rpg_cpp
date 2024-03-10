@@ -1,0 +1,25 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-mini_rpg_cpp",
+      "appliesTo": "/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-main",
+      "appliesTo": "main.cpp",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-main",
+      "appliesTo": "main.cpp",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "task-mini_rpg_cpp",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}

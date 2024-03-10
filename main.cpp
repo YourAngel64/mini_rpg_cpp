@@ -38,9 +38,11 @@ Uint32 frame_start;
 
 
 int main(int argc, char const *argv[]){
+
+
     game = new Game();
     game -> init("Mini RPG Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 1200, false);
-    
+
     while(game->running()){
         frame_start = SDL_GetTicks();
 

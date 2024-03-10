@@ -1,1 +1,1 @@
-g++ main.cpp game.cpp game.hpp texture_render.cpp texture_render.hpp game_obj.cpp game_obj.hpp -IC:\i686-w64-mingw32\include -LC:\i686-w64-mingw32\lib -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -o ola.exe
+g++ main.cpp game.cpp game.hpp texture_render.cpp texture_render.hpp game_obj.cpp game_obj.hpp ECS.cpp ECS.hpp -IC:\i686-w64-mingw32\include -LC:\i686-w64-mingw32\lib -IC:\MinGW\include\entt\src -w -Wl,-subsystem,windows -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -o ola.exe
