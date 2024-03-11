@@ -1,7 +1,11 @@
 #include "ECS.hpp"
-#include "game.hpp"
 
-ECS::ECS(){
-    entity = registry.create();
-    registry.emplace<velocity>(entity, 0.0, 0.0);
+entities::~entities() {};
+
+entities::entities() {
+	obj = registry.create();
+}
+
+void entities::giveComponent(){
+	registry.emplace<velocity>(obj, 0, 0);
 }

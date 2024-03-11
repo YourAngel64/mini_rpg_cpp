@@ -21,7 +21,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         
         //Init main gameObj
-        player = new gameObj("./textures/mario.png");
+        player = new gameObj("C:/Users/angel/Documents/coding/mini_rpg_cpp/textures/mario.png");
 
         //Game is running
         isRunning = true;
@@ -37,6 +37,9 @@ void Game::handle_event(){
 
     switch (event.type){
     case SDL_QUIT:
+        isRunning = false;
+        break;
+    case SDL_KEYDOWN:
         isRunning = false;
         break;
     default:

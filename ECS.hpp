@@ -1,16 +1,20 @@
 #include "game.hpp"
-#include "C:\libraries\entityx\entityx/entityx.h"
+#include "entt.hpp"
+#include <iostream>
 
-struct velocity{
-    float x,y;
+struct velocity {
+	int x, y;
 };
 
-class ECS{
+class entities {
 public:
-    ECS();
-    ~ECS();
+	entities();
+	~entities();
+
+	void giveComponent();
+
 
 private:
-    entt::registry registry;
-    entt::entity entity;
+	entt::registry registry;
+	entt::entity obj;
 };
