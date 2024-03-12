@@ -1,6 +1,8 @@
 #ifndef GAME_OBJ
 #define GAME_OBJ
 #include "game.hpp"
+#include "components.hpp"
+
 
 class gameObj{
 public:
@@ -12,8 +14,10 @@ public:
 
 
 private:
-    SDL_Rect src_rect, destination_rect;
     SDL_Texture *obj_texture;
+    SDL_Rect destination;
+    entt::registry reg;
+    entt::entity ent;
 };
 
 

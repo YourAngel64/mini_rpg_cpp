@@ -27,12 +27,10 @@ Project may take a couple of months so probably going to do side projects to not
 */
 
 #include "game.hpp"
-#include "ECS.hpp"
 
 
 #define SDL_main main
 Game *game = nullptr;
-entities* player = nullptr;
 //Variables for limiting FPS (practice so then this is going to a hpp file)
 const int FPS = 60;
 const int delay_time = 1000/FPS;
@@ -41,9 +39,7 @@ Uint32 frame_start;
 
 
 int main(int argc, char const *argv[]){
-    player = new entities();
-    player-> giveComponent();
-    
+   
 
     game = new Game();
     game -> init("Mini RPG Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 1200, false);

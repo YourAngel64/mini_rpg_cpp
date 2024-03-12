@@ -1,10 +1,10 @@
 #include "game.hpp"
-#include "game_obj.hpp"
+
 
 Game::Game(){}
 Game::~Game(){}
 
-gameObj *player;
+player* Player = nullptr;
 
 SDL_Renderer *Game::renderer = nullptr;
 
@@ -21,7 +21,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         
         //Init main gameObj
-        player = new gameObj("C:/Users/angel/Documents/coding/mini_rpg_cpp/textures/mario.png");
+        Player = new player();
 
         //Game is running
         isRunning = true;
@@ -50,7 +50,7 @@ void Game::handle_event(){
 
 void Game::update(){
     value++;
-    player -> update(value, value, 200, 200);
+    Player->update(value, value);
     // destination_rect.w = 200;
     // destination_rect.h = 200;
     // destination_rect.x = value;
@@ -58,7 +58,7 @@ void Game::update(){
 
 void Game::render(){
     SDL_RenderClear(renderer);
-    player -> render();
+    Player->render();
     SDL_RenderPresent(renderer);
 }
 

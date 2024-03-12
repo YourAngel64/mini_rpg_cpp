@@ -1,4 +1,3 @@
-#include "game.hpp"
 #include "entt.hpp"
 #include <iostream>
 
@@ -11,7 +10,8 @@ public:
 	entities();
 	~entities();
 
-	void giveComponent();
+	void give_velocity();
+	void update_velocity(int a, int b);
 
 
 private:

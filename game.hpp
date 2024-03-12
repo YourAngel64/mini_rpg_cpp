@@ -3,6 +3,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "player.hpp"
 #include <string>
 #include <iostream>
 
